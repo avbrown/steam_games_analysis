@@ -17,69 +17,69 @@ There are over 40,000 records in this dataset and 20 feature columnns. Unfortuna
 This section follows how I went about creating a functioning dataset that is useful for predictive modeling. In particular, I discuss how I went about removing null-valued records, removing outliers in certain features, and determining non-video game related records/features.
 
 Before data cleaning:
-        ```
-    RangeIndex: 40833 entries, 0 to 40832
-    Data columns (total 20 columns):
-     #   Column                    Non-Null Count  Dtype  
-    ---  ------                    --------------  -----  
-     0   url                       40833 non-null  object 
-     1   types                     40831 non-null  object 
-     2   name                      40817 non-null  object 
-     3   desc_snippet              27612 non-null  object 
-     4   recent_reviews            2706 non-null   object 
-     5   all_reviews               28470 non-null  object 
-     6   release_date              37654 non-null  object 
-     7   developer                 40490 non-null  object 
-     8   publisher                 35733 non-null  object 
-     9   popular_tags              37888 non-null  object 
-     10  game_details              40313 non-null  object 
-     11  languages                 40797 non-null  object 
-     12  achievements              12194 non-null  float64
-     13  genre                     40395 non-null  object 
-     14  game_description          37920 non-null  object 
-     15  mature_content            2897 non-null   object 
-     16  minimum_requirements      21069 non-null  object 
-     17  recommended_requirements  21075 non-null  object 
-     18  original_price            35522 non-null  object 
-     19  discount_price            14543 non-null  object
-     dtypes: float64(1), object(19)
-    ```
+```
+RangeIndex: 40833 entries, 0 to 40832
+Data columns (total 20 columns):
+ #   Column                    Non-Null Count  Dtype  
+---  ------                    --------------  -----  
+ 0   url                       40833 non-null  object 
+ 1   types                     40831 non-null  object 
+ 2   name                      40817 non-null  object 
+ 3   desc_snippet              27612 non-null  object 
+ 4   recent_reviews            2706 non-null   object 
+ 5   all_reviews               28470 non-null  object 
+ 6   release_date              37654 non-null  object 
+ 7   developer                 40490 non-null  object 
+ 8   publisher                 35733 non-null  object 
+ 9   popular_tags              37888 non-null  object 
+ 10  game_details              40313 non-null  object 
+ 11  languages                 40797 non-null  object 
+ 12  achievements              12194 non-null  float64
+ 13  genre                     40395 non-null  object 
+ 14  game_description          37920 non-null  object 
+ 15  mature_content            2897 non-null   object 
+ 16  minimum_requirements      21069 non-null  object 
+ 17  recommended_requirements  21075 non-null  object 
+ 18  original_price            35522 non-null  object 
+ 19  discount_price            14543 non-null  object
+ dtypes: float64(1), object(19)
+```
     
 After data cleaning:
-    ```
-    Int64Index: 11939 entries, 0 to 40811
-    Data columns (total 27 columns):
-     #   Column                      Non-Null Count  Dtype  
-    ---  ------                      --------------  -----  
-     0   positive_reviews            11939 non-null  int64  
-     1   original_price_tuned        11939 non-null  float64
-     2   Action                      11939 non-null  int64  
-     3   Adventure                   11939 non-null  int64  
-     4   Casual                      11939 non-null  int64  
-     5   Early_Access                11939 non-null  int64  
-     6   Indie                       11939 non-null  int64  
-     7   Massively_Multiplayer       11939 non-null  int64  
-     8   RPG                         11939 non-null  int64  
-     9   Racing                      11939 non-null  int64  
-     10  Simulation                  11939 non-null  int64  
-     11  Sports                      11939 non-null  int64  
-     12  Strategy                    11939 non-null  int64  
-     13  Valve                       11939 non-null  int64  
-     14  Co-op                       11939 non-null  int64  
-     15  Cross-Platform_Multiplayer  11939 non-null  int64  
-     16  Full_controller_support     11939 non-null  int64  
-     17  In-App_Purchases            11939 non-null  int64  
-     18  Includes_level_editor       11939 non-null  int64  
-     19  Local_Co-op                 11939 non-null  int64  
-     20  Local_Multi-Player          11939 non-null  int64  
-     21  Multi-player                11939 non-null  int64  
-     22  Online_Co-op                11939 non-null  int64  
-     23  Online_Multi-Player         11939 non-null  int64  
-     24  Partial_Controller_Support  11939 non-null  int64  
-     25  Shared/Split_Screen         11939 non-null  int64  
-     26  Single-player               11939 non-null  int64  
-    dtypes: float64(1), int64(26)
-    ```
+```
+Int64Index: 11939 entries, 0 to 40811
+Data columns (total 27 columns):
+ #   Column                      Non-Null Count  Dtype  
+---  ------                      --------------  -----  
+ 0   positive_reviews            11939 non-null  int64  
+ 1   original_price_tuned        11939 non-null  float64
+ 2   Action                      11939 non-null  int64  
+ 3   Adventure                   11939 non-null  int64  
+ 4   Casual                      11939 non-null  int64  
+ 5   Early_Access                11939 non-null  int64  
+ 6   Indie                       11939 non-null  int64  
+ 7   Massively_Multiplayer       11939 non-null  int64  
+ 8   RPG                         11939 non-null  int64  
+ 9   Racing                      11939 non-null  int64  
+ 10  Simulation                  11939 non-null  int64  
+ 11  Sports                      11939 non-null  int64  
+ 12  Strategy                    11939 non-null  int64  
+ 13  Valve                       11939 non-null  int64  
+ 14  Co-op                       11939 non-null  int64  
+ 15  Cross-Platform_Multiplayer  11939 non-null  int64  
+ 16  Full_controller_support     11939 non-null  int64  
+ 17  In-App_Purchases            11939 non-null  int64  
+ 18  Includes_level_editor       11939 non-null  int64  
+ 19  Local_Co-op                 11939 non-null  int64  
+ 20  Local_Multi-Player          11939 non-null  int64  
+ 21  Multi-player                11939 non-null  int64  
+ 22  Online_Co-op                11939 non-null  int64  
+ 23  Online_Multi-Player         11939 non-null  int64  
+ 24  Partial_Controller_Support  11939 non-null  int64  
+ 25  Shared/Split_Screen         11939 non-null  int64  
+ 26  Single-player               11939 non-null  int64  
+dtypes: float64(1), int64(26)
+```
 
 ## Predictive Modeling
 This section will explore multiple classification and machine learning algorithms in an effort to find the most optimal model for predicting playerbase feedback.
